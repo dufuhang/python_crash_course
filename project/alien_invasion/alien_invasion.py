@@ -1,5 +1,8 @@
 import sys
+from typing import Set
 import pygame
+
+from settings import Settings
 
 class AlienInvasion:
     """Class that manage game source and action"""
@@ -9,11 +12,8 @@ class AlienInvasion:
         pygame.init()
         # 设置帧率
         self.clock = pygame.time.Clock()
-
-        # 设置背景色
-        self.bg_color = (230, 230, 230)
-
-        self.screen = pygame.display.set_mode((1200, 800))
+        self.settings = Settings()
+        self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Alien Invasion")
 
     def run_game(self):
@@ -25,7 +25,7 @@ class AlienInvasion:
                     sys.exit()
 
             # 每次循环时都重绘屏幕
-            self.screen.fill(self.bg_color)
+            self.screen.fill(self.settings.bg_color)
             # Dispalay screen
             pygame.display.flip()
             self.clock.tick(60)
