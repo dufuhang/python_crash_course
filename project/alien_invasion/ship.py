@@ -1,19 +1,19 @@
 import pygame
 
 class Ship:
-    """管理飞船的类"""
+    """Class that manage ship"""
     def __init__(self, ai_game):
-        """初始化飞船并设置其初始位置"""
+        """Initialize the ship and set its starting position"""
         self.screen = ai_game.screen
         self.screen_rect = ai_game.screen.get_rect()
 
-        # 加载飞船图像并获取其外接矩形
+        # Load the ship image and get its rect
         self.image = pygame.image.load('images/ship.bmp')
         self.rect = self.image.get_rect()
 
-        # 每艘新飞船都放在屏幕底部的中央
+        # Start each new ship at the bottom center of the screen
         self.rect.midbottom = self.screen_rect.midbottom
 
     def blitme(self):
-        """指定位置绘制飞船"""
+        """Draw the ship at its current location"""
         self.screen.blit(self.image, self.rect)

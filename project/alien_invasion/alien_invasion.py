@@ -23,7 +23,6 @@ class AlienInvasion:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
-
             # 每次循环时都重绘屏幕
             self.screen.fill(self.settings.bg_color)
             # Dispalay screen
