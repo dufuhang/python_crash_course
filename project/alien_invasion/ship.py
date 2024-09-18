@@ -14,6 +14,14 @@ class Ship:
         # Start each new ship at the bottom center of the screen
         self.rect.midbottom = self.screen_rect.midbottom
 
+        # 移动标志
+        self.moving_right = False
+
+    def update(self):
+        """根据移动标志调整飞船的位置"""
+        if self.moving_right:
+            self.rect.x += 1
+
     def blitme(self):
         """Draw the ship at its current location"""
         self.screen.blit(self.image, self.rect)
