@@ -1,0 +1,2 @@
+lan = 'python '
+print(lan)
