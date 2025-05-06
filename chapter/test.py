@@ -1,2 +1,0 @@
-lan = 'python '
-print(lan)
