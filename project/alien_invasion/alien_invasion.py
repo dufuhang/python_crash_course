@@ -4,6 +4,7 @@ import pygame
 
 from settings import Settings
 from ship import Ship
+from bullet import Bullet
 
 class AlienInvasion:
     """管理游戏资源和行为的类"""
@@ -25,12 +26,15 @@ class AlienInvasion:
         pygame.display.set_caption("Alien Invasion")
         self.ship = Ship(self)
 
+        self.bullets = pygame.sprite.Group()
+
     def run_game(self):
         """开始游戏的主循环"""
         while True:
             # 监听键盘和鼠标事件
             self._check_events()
             self.ship.update()
+            self.bullets.update()
             self._update_screen()
             self.clock.tick(60)
 
