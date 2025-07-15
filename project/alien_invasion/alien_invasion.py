@@ -35,6 +35,14 @@ class AlienInvasion:
             self._check_events()
             self.ship.update()
             self.bullets.update()
+            
+            # 删除已经消失的子弹
+            for bullet in self.bullets.copy():
+                if bullet.rect.bottom <= 0:
+                    self.bullets.remove(bullet)
+            # FIXME: 无法打印，但是不影响程序运行，需要排查
+            print(len(self.bullets))
+
             self._update_screen()
             self.clock.tick(60)
 
