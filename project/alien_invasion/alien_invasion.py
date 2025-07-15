@@ -34,15 +34,7 @@ class AlienInvasion:
             # 监听键盘和鼠标事件
             self._check_events()
             self.ship.update()
-            self.bullets.update()
-            
-            # 删除已经消失的子弹
-            for bullet in self.bullets.copy():
-                if bullet.rect.bottom <= 0:
-                    self.bullets.remove(bullet)
-            # FIXME: 无法打印，但是不影响程序运行，需要排查
-            print(len(self.bullets))
-
+            self._update_bullets()
             self._update_screen()
             self.clock.tick(60)
 
@@ -91,6 +83,15 @@ class AlienInvasion:
         self.ship.blitme()
         # 让最近绘制的屏幕可见
         pygame.display.flip()
+
+    def _update_bullets(self):
+        self.bullets.update()
+        # 删除已经消失的子弹
+        for bullet in self.bullets.copy():
+            if bullet.rect.bottom <= 0:
+                self.bullets.remove(bullet)
+            # FIXME: 无法打印，但是不影响程序运行，需要排查
+            print(len(self.bullets))
 
 
 if __name__ == '__main__':
